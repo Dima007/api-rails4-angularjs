@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
-  devise_for :users
 
   root :to => "home#index"
   get '/dashboard' => 'templates#index'
@@ -10,7 +9,7 @@ Rails.application.routes.draw do
     devise_scope :user do
       resources :session, only: [:create, :destroy]
     end
-    resources :clients, only: [:index, :create, :update, :destroy, :show]
+    # resources :clients, only: [:index, :create, :update, :destroy, :show]
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
