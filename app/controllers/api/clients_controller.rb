@@ -1,4 +1,5 @@
-class Api::ClientsController < ApplicationController
+class Api::ClientsController < Api::BaseController
+  skip_before_action :authenticate_user!, only: [:create ]
   before_action :check_owner, only: [:show, :update, :destroy]
 
   def index

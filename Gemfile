@@ -42,7 +42,6 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-# gem 'devise', '~> 3.0.4'
 gem 'slim'
 gem 'active_model_serializers'
 gem 'jquery-ui-rails'

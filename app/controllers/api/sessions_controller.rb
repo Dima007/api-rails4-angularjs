@@ -1,4 +1,5 @@
-class Api::SessionController < ApplicationController
+class Api::SessionsController < Devise::SessionsController
+  skip_before_action :authenticate_user!, only: [:create]
   before_action :warden_authenticate
 
   def create
