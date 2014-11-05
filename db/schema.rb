@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141105042419) do
+ActiveRecord::Schema.define(version: 20141105054248) do
+
+  create_table "clients", force: true do |t|
+    t.string   "name"
+    t.string   "surname"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "owner_id"
+  end
+
+  add_index "clients", ["owner_id"], name: "index_clients_on_owner_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -28,6 +39,7 @@ ActiveRecord::Schema.define(version: 20141105042419) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "authentication_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
