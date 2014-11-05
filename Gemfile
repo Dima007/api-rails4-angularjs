@@ -42,7 +42,17 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+#Template slim
 gem 'slim'
+
+#for serializing model attributes
 gem 'active_model_serializers'
+
+#jquery-ui lib for rails
 gem 'jquery-ui-rails'
+
+#for sorting lists
 gem 'acts_as_list'
+
+#Admin UI
+gem 'activeadmin', github: 'activeadmin'
