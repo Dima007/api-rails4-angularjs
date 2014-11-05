@@ -56,3 +56,4 @@ gem 'acts_as_list'
 
 #Admin UI
 gem 'activeadmin', github: 'activeadmin'
+gem 'meta_search'
