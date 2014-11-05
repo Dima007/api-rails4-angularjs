@@ -1,4 +1,4 @@
 class Client < ActiveRecord::Base
-  has_many :therapists_clientses
-  has_many :therapists, through: :therapists_clientses
+  has_many :relationships
+  has_many :therapists, through: :relationships
 end

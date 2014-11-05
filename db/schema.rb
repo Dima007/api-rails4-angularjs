@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141105133237) do
+ActiveRecord::Schema.define(version: 20141105144229) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -75,6 +75,17 @@ ActiveRecord::Schema.define(version: 20141105133237) do
     t.datetime "first_instant_session_at"
   end
 
+  create_table "relationships", force: true do |t|
+    t.integer  "therapist_id"
+    t.integer  "client_id"
+    t.datetime "relationship_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "relationships", ["client_id"], name: "index_relationships_on_client_id", using: :btree
+  add_index "relationships", ["therapist_id"], name: "index_relationships_on_therapist_id", using: :btree
+
   create_table "therapists", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -102,16 +113,5 @@ ActiveRecord::Schema.define(version: 20141105133237) do
     t.datetime "online_at"
     t.integer  "position"
   end
-
-  create_table "therapists_clients", force: true do |t|
-    t.integer  "therapist_id"
-    t.integer  "client_id"
-    t.datetime "therapists_clients_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "therapists_clients", ["client_id"], name: "index_therapists_clients_on_client_id", using: :btree
-  add_index "therapists_clients", ["therapist_id"], name: "index_therapists_clients_on_therapist_id", using: :btree
 
 end
