@@ -1,10 +1,17 @@
 ActiveAdmin.setup do |config|
 
-  # == Site Title
-  #
-  # Set the title that is displayed on the main layout
-  # for each of the active admin pages.
-  #
+  module ActiveAdmin
+    module Views
+      module Pages
+        class Base < Arbre::HTML::Document
+          def build_footer
+            insert_tag view_factory.footer
+          end
+        end
+      end
+    end
+  end
+
   config.site_title = "Api Rails4 Angularjs"
 
   # Set the link url for the title. For example, to take
@@ -55,7 +62,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # within the application controller.
-  # config.authentication_method = :authenticate_admin_user!
+  # config.authentication_method = :active_admin_only!
 
   # == User Authorization
   #
@@ -87,7 +94,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # (within the application controller) to return the currently logged in user.
-  # config.current_user_method = :current_admin_user
+  # config.current_user_method = :current_user
 
 
   # == Logging Out
@@ -100,7 +107,7 @@ ActiveAdmin.setup do |config|
   # will call the method to return the path.
   #
   # Default:
-  config.logout_link_path = :destroy_admin_user_session_path
+  config.logout_link_path = :sign_out_path
 
   # This setting changes the http method used when rendering the
   # link. For example :get, :delete, :put, etc..
@@ -123,7 +130,7 @@ ActiveAdmin.setup do |config|
   # This allows your users to comment on any resource registered with Active Admin.
   #
   # You can completely disable comments:
-  # config.allow_comments = false
+  config.allow_comments = false
   #
   # You can disable the menu item for the comments index page:
   # config.show_comments_in_menu = false
