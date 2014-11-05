@@ -32,7 +32,7 @@ class Api::ClientsController < Api::BaseController
   end
 
   def client_list
-    @client ||= Client.find(params[:id])
+    @client ||= MyClient.find(params[:id])
   end
 
   def safe_params
