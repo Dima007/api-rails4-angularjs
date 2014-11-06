@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141105144229) do
+ActiveRecord::Schema.define(version: 20141106103704) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -35,9 +35,11 @@ ActiveRecord::Schema.define(version: 20141105144229) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "password_salt"
     t.integer  "time_zone"
+    t.string   "remember_token"
   end
+
+  add_index "administrators", ["remember_token"], name: "index_administrators_on_remember_token", using: :btree
 
   create_table "clients", force: true do |t|
     t.string   "first_name"
