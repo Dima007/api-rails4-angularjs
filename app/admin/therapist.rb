@@ -1,4 +1,6 @@
 ActiveAdmin.register Therapist do
+  menu priority: 3
+
   actions :all, except: [:show ]
 
   permit_params :first_name, :last_name, :email, :skype_username, :password, :password_confirmation
